@@ -28,7 +28,13 @@ def parse_args():
     parser = argparse.ArgumentParser()
 
     parser.add_argument('--dataset', type=str, default='Cora', help='dataset')
-    parser.add_argument('--model', type=str, default='', help='model')
+    parser.add_argument(
+        '--model',
+        type=str,
+        default='gcn',
+        choices=['gcn', 'sage', 'gat'],
+        help='GNN model to use: gcn, sage, or gat'
+    )
     parser.add_argument('--task', type=str, default='link', help='task: node, link')
 
     parser.add_argument('--ds_path', type=str, default='data')
