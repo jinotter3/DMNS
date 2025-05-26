@@ -116,9 +116,12 @@ def run(args, data, save_path, seed, device):
     model_path = os.path.join(save_path, 'model_{:d}.pkl'.format(seed))
     in_feat = data.feat.shape[1]
 
-    model = GCN(in_feat, args.nhid, args)
-    # model = GraphSAGE(in_feat, args.nhid, args)
-    # model = GAT(in_feat, args.nhid, args)
+    if args.model == "sage":
+        model = GraphSAGE(in_feat, args.nhid, args)
+    elif args.model == "gat":
+        model = GAT(in_feat, args.nhid, args)
+    else:
+        model = GCN(in_feat, args.nhid, args)
 
     optimizer = torch.optim.Adam(model.parameters(),\
                                  lr=args.lr, weight_decay=args.decay)

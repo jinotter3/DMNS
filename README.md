@@ -17,6 +17,9 @@ To install required packages
 ## 3. Experiments
 For reproducibility, please run these commands regarding to specific dataset:
 
-- python main_cond.py --dataset=Cora/Citeseer/CS/Actor
+- python main_cond.py --dataset=Cora/Citeseer/CS/Actor --model=gcn
+
+The `--model` flag chooses the GNN architecture. Available options are `gcn`,
+`sage`, and `gat`.
 
 ## 4. Citation
